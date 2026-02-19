@@ -15,6 +15,7 @@ Nimbus is a Flutter-based mobile and desktop weather application designed to pro
 *   **Dependency Injection:** GetIt will be utilized for efficient and maintainable dependency injection.
 *   **Business Logic:** Business logic will reside primarily in BLoCs and UseCases, minimizing its presence in the UI layer to facilitate headless testing.
 *   **Linting and Coding Standards:** Strict adherence to the official Dart Linter, `flutter_lints`, Effective Dart guidelines, and Kotlin coding conventions (for native Android modules, if any).
+*   **Navigation:** `go_router` will be used for declarative navigation within the application.
 
 ## 3. Core Features (The "What" and "Why")
 
@@ -121,7 +122,7 @@ Nimbus is a Flutter-based mobile and desktop weather application designed to pro
 ## 7. Task List
 
 *   **Planned:**
-    *   Set up Flutter project with multi-platform support (Android, iOS, macOS).
+    *   Integrate `go_router` for application navigation.
     *   Implement Clean Architecture base structure (layers, interfaces, etc.).
     *   Configure GetIt for dependency injection.
     *   Integrate Drift for local database persistence.
