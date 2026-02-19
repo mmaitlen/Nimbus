@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nimbus/core/di/di.dart'; // Import the DI setup
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupLocator(); // Call DI setup asynchronously
   runApp(const MainApp());
 }
 
@@ -9,12 +13,35 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: _router,
     );
   }
 }
+
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const Scaffold(
+          body: Center(
+            child: Text('List Screen Placeholder'),
+          ),
+        );
+      },
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'details',
+          builder: (BuildContext context, GoRouterState state) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Detail Screen Placeholder'),
+              ),
+            );
+          },
+        ),
+      ],
+    ),
+  ],
+);
